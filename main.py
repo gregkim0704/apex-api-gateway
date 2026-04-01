@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from routers import realtrade, legal_ai, ad_copy, briefing, crm
+from routers import realtrade, legal_ai, ad_copy, briefing, crm, homepage
 
 app = FastAPI(
     title="APEX 부동산 OS API",
@@ -32,6 +32,7 @@ app.include_router(legal_ai.router, prefix="/api/v1/legal", tags=["세무·법�
 app.include_router(ad_copy.router, prefix="/api/v1/adcopy", tags=["광고 문구"])
 app.include_router(briefing.router, prefix="/api/v1/briefing", tags=["브리핑"])
 app.include_router(crm.router, prefix="/api/v1/crm", tags=["CRM"])
+app.include_router(homepage.router, prefix="/api/v1/homepage", tags=["홈페이지 빌더"])
 
 
 @app.get("/")
